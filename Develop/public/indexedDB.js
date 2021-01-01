@@ -31,3 +31,12 @@ const indexedDB =
     request.onerror = function (event) {
         console.log("Error Code")
     };
+//using the fuction saveRecorde to save the data,access and record
+    function saveRecord(data) {
+        const transaction = db.transaction(["pending"], "readwrite");
+        //access
+        const store = transaction.objectStore("pending");
+        //add record
+        store.add(data);
+    }
+    
